@@ -7,7 +7,6 @@ const MONGO_OPTIONS = {
   useNewUrlParser: true,
   socketTimeoutMS: 30000,
   keepAlive: true,
-  poolSize: 50,
   autoIndex: false,
   retryWrites: false,
 };
@@ -21,7 +20,7 @@ const MONGO = {
   username: MONGO_USERNAME,
   password: MONGO_PASSWORD,
   options: MONGO_OPTIONS,
-  url: `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}`,
+  url: `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}/wotlegends`,
 };
 
 const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';
