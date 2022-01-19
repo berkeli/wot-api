@@ -45,11 +45,23 @@ const PlayerSchema: Schema = new Schema({
   wn8: { type: Number },
   visits: { type: Number, default: 0 },
   isDeleted: { type: Boolean, default: false },
+  historical_data: [{
+    date: { type: Date },
+    global_rating: { type: Number },
+    battles: { type: Number },
+    wins: { type: Number },
+    wn8: { type: Number },
+    exp: { type: Number },
+    moeOne: { type: Number },
+    moeTwo: { type: Number },
+    moeThree: { type: Number },
+    tier: { type: Number },
+  }],
 });
 
 export default {
-  eu: mongoose.model<IPlayer>('EUPlayer', PlayerSchema.clone().add({ clan_id: { type: mongoose.Schema.Types.ObjectId, ref: 'EUClans' } })),
-  na: mongoose.model<IPlayer>('NAPlayer', PlayerSchema.clone().add({ clan_id: { type: mongoose.Schema.Types.ObjectId, ref: 'NAClans' } })),
-  ru: mongoose.model<IPlayer>('RUPlayer', PlayerSchema.clone().add({ clan_id: { type: mongoose.Schema.Types.ObjectId, ref: 'RUClans' } })),
-  asia: mongoose.model<IPlayer>('ASIAPlayer', PlayerSchema.clone().add({ clan_id: { type: mongoose.Schema.Types.ObjectId, ref: 'ASIAClans' } })),
+  eu: mongoose.model<IPlayer>('EUPlayer', PlayerSchema.clone().add({ clan_id: { type: mongoose.Schema.Types.ObjectId, ref: 'EUClan' } })),
+  na: mongoose.model<IPlayer>('NAPlayer', PlayerSchema.clone().add({ clan_id: { type: mongoose.Schema.Types.ObjectId, ref: 'NAClan' } })),
+  ru: mongoose.model<IPlayer>('RUPlayer', PlayerSchema.clone().add({ clan_id: { type: mongoose.Schema.Types.ObjectId, ref: 'RUClan' } })),
+  asia: mongoose.model<IPlayer>('ASIAPlayer', PlayerSchema.clone().add({ clan_id: { type: mongoose.Schema.Types.ObjectId, ref: 'ASIAClan' } })),
 };

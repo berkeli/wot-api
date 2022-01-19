@@ -1,8 +1,8 @@
-import { Document } from 'mongoose';
+import { Document, ObjectId } from 'mongoose';
 
 // Create an interface for tank information
 export default interface ITank extends Document {
-  _id: number,
+  _id: ObjectId,
   tag: string,
   name: string,
   short_name: string,

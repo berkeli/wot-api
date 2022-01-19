@@ -23,6 +23,7 @@
     "quotes": ["error", "single", { "avoidEscape": true }],
     "max-len": 0,
     "no-console": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "no-plusplus":"off",
     "semi":"off",
     "import/extensions": [

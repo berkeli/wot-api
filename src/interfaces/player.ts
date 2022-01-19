@@ -1,8 +1,24 @@
-import { Document } from 'mongoose';
+import { Document, ObjectId } from 'mongoose';
+import IClan from 'src/interfaces/clan';
+import ITank from 'src/interfaces/tank';
+import ITankStatistic from './tankstatistic';
+
+interface IHistoricalData {
+  date: Date,
+  global_rating: number,
+  battles: number,
+  wins: number,
+  wn8: number,
+  exp: number,
+  moeOne: number,
+  moeTwo: number,
+  moeThree: number,
+  tier: number,
+}
 
 // Create an interface for Player information
 export default interface IPlayer extends Document {
-  _id: number,
+  _id: ObjectId,
   max_frags_tank_id: number,
   spotted: number,
   max_xp: number,
@@ -17,8 +33,8 @@ export default interface IPlayer extends Document {
   avg_damage_assisted: number,
   frags: number,
   avg_damage_assisted_radio: number,
-  max_xp_tank_id: number,
-  max_damage_tank_id: number,
+  max_xp_tank_id: number | ObjectId | ITank,
+  max_damage_tank_id: number | ObjectId | ITank,
   max_damage: number,
   battle_avg_xp: number,
   wins: number,
@@ -30,7 +46,7 @@ export default interface IPlayer extends Document {
   last_battle_time: Date,
   created_at: Date,
   global_rating: number,
-  clan_id: number,
+  clan_id: number | ObjectId | IClan,
   nickname: string,
   tier: number,
   date_updated: Date,
@@ -42,4 +58,6 @@ export default interface IPlayer extends Document {
   wn8: number,
   visits: number
   isDeleted: boolean,
+  tank_stats: number | ObjectId | ITankStatistic,
+  historical_data: IHistoricalData[],
 }

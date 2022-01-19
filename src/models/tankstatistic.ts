@@ -1,0 +1,57 @@
+import mongoose, { Schema } from 'mongoose';
+import ITankStatistic from 'src/interfaces/tankstatistic';
+
+const TankStatisticSchema: Schema = new Schema({
+  data: [{
+    tank_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Tank' },
+    mark_of_mastery: { type: Number },
+    max_frags: { type: Number },
+    max_xp: { type: Number },
+    spotted: { type: Number },
+    hits: { type: Number },
+    losses: { type: Number },
+    draws: { type: Number },
+    wins: { type: Number },
+    avg_damage_blocked: { type: Number },
+    hits_percents: { type: Number },
+    battles: { type: Number },
+    damage_dealt: { type: Number },
+    capture_points: { type: Number },
+    damage_received: { type: Number },
+    shots: { type: Number },
+    frags: { type: Number },
+    xp: { type: Number },
+    survived_battles: { type: Number },
+    dropped_capture_points: { type: Number },
+    wn8: { type: Number },
+    achievements: {
+      shootToKill: { type: Number },
+      aimer: { type: Number },
+      fighter: { type: Number },
+      medalLavrinenko: { type: Number },
+      armorPiercer: { type: Number },
+      medalPoppel: { type: Number },
+      kamikaze: { type: Number },
+      supporter: { type: Number },
+      medalKay: { type: Number },
+      medalAbrams: { type: Number },
+      medalCarius: { type: Number },
+      duelist: { type: Number },
+      markOfMastery: { type: Number },
+      handOfDeath: { type: Number },
+      mainGun: { type: Number },
+      titleSniper: { type: Number },
+      charmed: { type: Number },
+      medalKnispel: { type: Number },
+      bonecrusher: { type: Number },
+      defender: { type: Number },
+    },
+  }],
+})
+
+export default {
+  eu: mongoose.model<ITankStatistic>('EUTankStatistic', TankStatisticSchema.clone().add({ _id: { type: mongoose.Schema.Types.ObjectId, ref: 'EUPlayer' } })),
+  na: mongoose.model<ITankStatistic>('NATankStatistic', TankStatisticSchema.clone().add({ _id: { type: mongoose.Schema.Types.ObjectId, ref: 'NAPlayer' } })),
+  ru: mongoose.model<ITankStatistic>('RUTankStatistic', TankStatisticSchema.clone().add({ _id: { type: mongoose.Schema.Types.ObjectId, ref: 'RUPlayer' } })),
+  asia: mongoose.model<ITankStatistic>('ASIATankStatistic', TankStatisticSchema.clone().add({ _id: { type: mongoose.Schema.Types.ObjectId, ref: 'ASIAPlayer' } })),
+}
