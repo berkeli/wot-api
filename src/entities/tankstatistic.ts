@@ -1,179 +1,181 @@
-import { RUPlayer, ASIAPlayer, EUPlayer, NAPlayer } from 'src/entities/player';
 import mongoose from 'mongoose';
-import Tank from 'src/entities/tank';
-import { Field, ObjectType } from 'type-graphql';
+import { Field, Int, ObjectType } from 'type-graphql';
 import { prop, Ref } from 'typegoose';
+import {
+  RUPlayer, ASIAPlayer, EUPlayer, NAPlayer,
+} from './player';
+import Tank from './tank';
 
 // Create an interface for tank information
 @ObjectType()
-class Tank_Achievements {
-    @Field(() => Number)
-    shootToKill: number;
+class TankAchievements {
+    @Field(() => Int)
+      shootToKill: number;
 
-    @Field(() => Number)
-    aimer: number;
+    @Field(() => Int)
+      aimer: number;
 
-    @Field(() => Number)
-    fighter: number;
+    @Field(() => Int)
+      fighter: number;
 
-    @Field(() => Number)
-    medalLavrinenko: number;
+    @Field(() => Int)
+      medalLavrinenko: number;
 
-    @Field(() => Number)
-    armorPiercer: number;
+    @Field(() => Int)
+      armorPiercer: number;
 
-    @Field(() => Number)
-    medalPoppel: number;
+    @Field(() => Int)
+      medalPoppel: number;
 
-    @Field(() => Number)
-    kamikaze: number;
+    @Field(() => Int)
+      kamikaze: number;
 
-    @Field(() => Number)
-    supporter: number;
+    @Field(() => Int)
+      supporter: number;
 
-    @Field(() => Number)
-    medalKay: number;
+    @Field(() => Int)
+      medalKay: number;
 
-    @Field(() => Number)
-    medalAbrams: number;
+    @Field(() => Int)
+      medalAbrams: number;
 
-    @Field(() => Number)
-    medalCarius: number;
+    @Field(() => Int)
+      medalCarius: number;
 
-    @Field(() => Number)
-    duelist: number;
+    @Field(() => Int)
+      duelist: number;
 
-    @Field(() => Number)
-    markOfMastery: number;
+    @Field(() => Int)
+      markOfMastery: number;
 
-    @Field(() => Number)
-    handOfDeath: number;
+    @Field(() => Int)
+      handOfDeath: number;
 
-    @Field(() => Number)
-    mainGun: number;
+    @Field(() => Int)
+      mainGun: number;
 
-    @Field(() => Number)
-    titleSniper: number;
+    @Field(() => Int)
+      titleSniper: number;
 
-    @Field(() => Number)
-    charmed: number;
+    @Field(() => Int)
+      charmed: number;
 
-    @Field(() => Number)
-    medalKnispel: number;
+    @Field(() => Int)
+      medalKnispel: number;
 
-    @Field(() => Number)
-    bonecrusher: number;
+    @Field(() => Int)
+      bonecrusher: number;
 
-    @Field(() => Number)
-    defender: number
+    @Field(() => Int)
+      defender: number
 }
 
 @ObjectType()
 class SingleTankStat {
     @Field(() => Tank)
     @prop({ ref: () => Tank })
-    tank_id: Ref<Tank>;
+      tank_id: Ref<Tank>;
 
-    @Field(() => Number)
-    mark_of_mastery: number;
+    @Field(() => Int)
+      mark_of_mastery: number;
 
-    @Field(() => Number)
-    max_frags: number;
+    @Field(() => Int)
+      max_frags: number;
 
-    @Field(() => Number)
-    max_xp: number;
+    @Field(() => Int)
+      max_xp: number;
 
-    @Field(() => Number)
-    spotted: number;
+    @Field(() => Int)
+      spotted: number;
 
-    @Field(() => Number)
-    hits: number;
+    @Field(() => Int)
+      hits: number;
 
-    @Field(() => Number)
-    losses: number;
+    @Field(() => Int)
+      losses: number;
 
-    @Field(() => Number)
-    draws: number;
+    @Field(() => Int)
+      draws: number;
 
-    @Field(() => Number)
-    wins: number;
+    @Field(() => Int)
+      wins: number;
 
-    @Field(() => Number)
-    avg_damage_blocked: number;
+    @Field(() => Int)
+      avg_damage_blocked: number;
 
-    @Field(() => Number)
-    hits_percents: number;
+    @Field(() => Int)
+      hits_percents: number;
 
-    @Field(() => Number)
-    battles: number;
+    @Field(() => Int)
+      battles: number;
 
-    @Field(() => Number)
-    damage_dealt: number;
+    @Field(() => Int)
+      damage_dealt: number;
 
-    @Field(() => Number)
-    capture_points: number;
+    @Field(() => Int)
+      capture_points: number;
 
-    @Field(() => Number)
-    damage_received: number;
+    @Field(() => Int)
+      damage_received: number;
 
-    @Field(() => Number)
-    shots: number;
+    @Field(() => Int)
+      shots: number;
 
-    @Field(() => Number)
-    frags: number;
+    @Field(() => Int)
+      frags: number;
 
-    @Field(() => Number)
-    xp: number;
+    @Field(() => Int)
+      xp: number;
 
-    @Field(() => Number)
-    survived_battles: number;
+    @Field(() => Int)
+      survived_battles: number;
 
-    @Field(() => Number)
-    dropped_capture_points: number;
+    @Field(() => Int)
+      dropped_capture_points: number;
 
-    @Field(() => Number)
-    wn8: number;
+    @Field(() => Int)
+      wn8: number;
 
-    @Field(() => Tank_Achievements)
-    achievements: Tank_Achievements;
+    @Field(() => TankAchievements)
+      achievements: TankAchievements;
 }
 
 @ObjectType()
 export class EUTankStatistic {
     @Field(() => EUPlayer)
     @prop({ ref: () => EUPlayer })
-    _id: Ref<EUPlayer>;
+      _id: Ref<EUPlayer>;
 
     @Field(() => [SingleTankStat])
-    tank_stats: mongoose.Types.Array<SingleTankStat>
+      tank_stats: mongoose.Types.Array<SingleTankStat>
 }
 
 @ObjectType()
 export class NATankStatistic {
     @Field(() => NAPlayer)
     @prop({ ref: () => NAPlayer })
-    _id: Ref<NAPlayer>;
+      _id: Ref<NAPlayer>;
 
     @Field(() => [SingleTankStat])
-    tank_stats: mongoose.Types.Array<SingleTankStat>
+      tank_stats: mongoose.Types.Array<SingleTankStat>
 }
 
 @ObjectType()
 export class RUTankStatistic {
     @Field(() => RUPlayer)
     @prop({ ref: () => RUPlayer })
-    _id: Ref<RUPlayer>;
+      _id: Ref<RUPlayer>;
 
     @Field(() => [SingleTankStat])
-    tank_stats: mongoose.Types.Array<SingleTankStat>
+      tank_stats: mongoose.Types.Array<SingleTankStat>
 }
 
 @ObjectType()
 export class ASIATankStatistic {
     @Field(() => ASIAPlayer)
     @prop({ ref: () => ASIAPlayer })
-    _id: Ref<ASIAPlayer>;
+      _id: Ref<ASIAPlayer>;
 
     @Field(() => [SingleTankStat])
-    tank_stats: mongoose.Types.Array<SingleTankStat>
+      tank_stats: mongoose.Types.Array<SingleTankStat>
 }

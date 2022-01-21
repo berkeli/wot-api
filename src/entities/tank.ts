@@ -1,44 +1,46 @@
-import { Field, ObjectType } from 'type-graphql';
+import {
+  Field, ID, Int, ObjectType,
+} from 'type-graphql';
 
 // Create an interface for tank information
 @ObjectType()
 class TankImages {
   @Field(() => String)
-  small_icon: string;
+    small_icon: string;
 
   @Field(() => String)
-  contour_icon: string;
+    contour_icon: string;
 
   @Field(() => String)
-  big_icon: string
+    big_icon: string
 }
 
 @ObjectType()
 export default class Tank {
-  @Field(() => Number)
-  _id: number;
+  @Field(() => ID)
+    _id: number;
 
   @Field(() => String)
-  tag: string;
+    tag: string;
 
   @Field(() => String)
-  name: string;
+    name: string;
 
   @Field(() => String)
-  short_name: string;
+    short_name: string;
 
   @Field(() => String)
-  nation: string;
+    nation: string;
 
   @Field(() => Boolean)
-  is_premium: boolean;
+    is_premium: boolean;
 
-  @Field(() => Number)
-  tier: number;
+  @Field(() => Int)
+    tier: number;
 
   @Field(() => TankImages)
-  images: TankImages;
+    images: TankImages;
 
   @Field(() => String)
-  type: string;
+    type: string;
 }

@@ -1,3 +1,4 @@
+import { resolvers } from './resolvers';
 import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
@@ -5,7 +6,6 @@ import { buildSchema } from 'type-graphql';
 import mongoose from 'mongoose';
 import config from './config/config';
 import logging from './config/logging';
-import PlayerResolver from './resolvers/Player';
 
 const NAMESPACE = 'SERVER';
 
@@ -13,7 +13,7 @@ const main = async () => {
   /* Connect to MongoDB */
   mongoose
     .connect(config.mongo.url, config.mongo.options)
-    .then((result) => {
+    .then(() => {
       logging.info(NAMESPACE, 'Connected to MongoDB!');
     })
     .catch((error) => {
@@ -25,12 +25,12 @@ const main = async () => {
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [PlayerResolver],
+      resolvers,
       validate: false,
     }),
   });
 
-  apolloServer.start().then((res) => {
+  apolloServer.start().then(() => {
     apolloServer.applyMiddleware({ app });
     app.listen(4000, () => {
       console.log('server started on http://localhost:4000/');

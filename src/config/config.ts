@@ -20,7 +20,7 @@ const MONGO = {
   username: MONGO_USERNAME,
   password: MONGO_PASSWORD,
   options: MONGO_OPTIONS,
-  url: `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}/wotlegends`,
+  url: `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}`,
 };
 
 const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';

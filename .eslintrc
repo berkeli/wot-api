@@ -26,6 +26,8 @@
     "@typescript-eslint/no-explicit-any": "off",
     "no-plusplus":"off",
     "semi":"off",
+    "import/no-cycle":"off",
+    "max-classes-per-file": ["error", 10],
     "class-methods-use-this":"off",
     "import/extensions": [
       "error",
