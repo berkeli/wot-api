@@ -1,72 +1,70 @@
 import mongoose from 'mongoose';
 import { Field, Int, ObjectType } from 'type-graphql';
 import { prop, Ref } from 'typegoose';
-import {
-  RUPlayer, ASIAPlayer, EUPlayer, NAPlayer,
-} from './player';
+import { RUPlayer, ASIAPlayer, EUPlayer, NAPlayer } from './player';
 import Tank from './tank';
 
 // Create an interface for tank information
 @ObjectType()
 class TankAchievements {
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       shootToKill: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       aimer: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       fighter: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       medalLavrinenko: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       armorPiercer: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       medalPoppel: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       kamikaze: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       supporter: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       medalKay: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       medalAbrams: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       medalCarius: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       duelist: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       markOfMastery: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       handOfDeath: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       mainGun: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       titleSniper: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       charmed: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       medalKnispel: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       bonecrusher: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       defender: number
 }
 
@@ -76,67 +74,67 @@ class SingleTankStat {
     @prop({ ref: () => Tank })
       tank_id: Ref<Tank>;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       mark_of_mastery: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       max_frags: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       max_xp: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       spotted: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       hits: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       losses: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       draws: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       wins: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       avg_damage_blocked: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       hits_percents: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       battles: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       damage_dealt: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       capture_points: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       damage_received: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       shots: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       frags: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       xp: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       survived_battles: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       dropped_capture_points: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       wn8: number;
 
-    @Field(() => TankAchievements)
+    @Field(() => TankAchievements, { nullable: true })
       achievements: TankAchievements;
 }
 

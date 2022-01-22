@@ -5,49 +5,37 @@ import {
 } from './player';
 
 @ObjectType()
-class EUClanMember {
-    @Field(() => String)
+class ClanMember {
+    @Field(() => String, { nullable: true })
       role_i18n: string;
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
       joined_at: Date;
+}
 
+@ObjectType()
+class EUClanMember extends ClanMember {
     @Field(() => Int)
     @prop({ required: true, ref: () => EUPlayer })
       account_id: Ref<EUPlayer>;
 }
+
 @ObjectType()
-class NAClanMember {
-    @Field(() => String)
-      role_i18n: string;
-
-    @Field(() => Date)
-      joined_at: Date;
-
+class NAClanMember extends ClanMember {
     @Field(() => Int)
     @prop({ required: true, ref: () => NAPlayer })
       account_id: Ref<NAPlayer>;
 }
+
 @ObjectType()
-class RUClanMember {
-    @Field(() => String)
-      role_i18n: string;
-
-    @Field(() => String)
-      joined_at: Date;
-
+class RUClanMember extends ClanMember {
     @Field(() => Int)
     @prop({ required: true, ref: () => RUPlayer })
       account_id: Ref<RUPlayer>;
 }
+
 @ObjectType()
-class ASIAClanMember {
-    @Field(() => String)
-      role_i18n: string;
-
-    @Field(() => String)
-      joined_at: Date;
-
+class ASIAClanMember extends ClanMember {
     @Field(() => Int)
     @prop({ required: true, ref: () => ASIAPlayer })
       account_id: Ref<ASIAPlayer>;
@@ -59,31 +47,31 @@ class Clan {
     @Field(() => Int)
       _id: number;
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
       color: string;
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
       created_at: Date;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       members_count: number;
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
       name: string;
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
       tag: string;
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
       emblem: string;
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
       description_html: string;
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
       motto: string;
 
-    @Field(() => Date)
+    @Field(() => Date, { nullable: true })
       date_updated: Date
 }
 

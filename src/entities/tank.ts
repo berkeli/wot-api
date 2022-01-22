@@ -1,17 +1,15 @@
-import {
-  Field, ID, Int, ObjectType,
-} from 'type-graphql';
+import { Field, ID, Int, ObjectType } from 'type-graphql';
 
 // Create an interface for tank information
 @ObjectType()
 class TankImages {
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     small_icon: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     contour_icon: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     big_icon: string
 }
 
@@ -20,27 +18,27 @@ export default class Tank {
   @Field(() => ID)
     _id: number;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     tag: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     name: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     short_name: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     nation: string;
 
-  @Field(() => Boolean)
+  @Field(() => Boolean, { nullable: true })
     is_premium: boolean;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     tier: number;
 
-  @Field(() => TankImages)
+  @Field(() => TankImages, { nullable: true })
     images: TankImages;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     type: string;
 }

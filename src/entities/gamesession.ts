@@ -1,9 +1,7 @@
 import mongoose from 'mongoose';
 import { Field, Int, ObjectType } from 'type-graphql';
 import { prop, Ref } from 'typegoose';
-import {
-  EUPlayer, NAPlayer, ASIAPlayer, RUPlayer,
-} from './player';
+import { EUPlayer, NAPlayer, ASIAPlayer, RUPlayer } from './player';
 import Tank from './tank';
 
 @ObjectType()
@@ -12,32 +10,32 @@ class Session {
     @prop({ required: true, ref: () => Tank })
       tank_id: Ref<Tank>;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       battles: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       damage_dealt: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       wins: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       spotted: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       frags: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       dropped_capture_points: number;
 
-    @Field(() => Int)
+    @Field(() => Int, { nullable: true })
       wn8: number
 }
 
 // Create a class for player's game sessions
 @ObjectType()
 class GameSession {
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
       date: Date;
 
     @Field(() => [Session])

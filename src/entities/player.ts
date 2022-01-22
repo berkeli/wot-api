@@ -1,46 +1,40 @@
 import mongoose from 'mongoose';
-import {
-  Field, ID, Int, ObjectType,
-} from 'type-graphql';
+import { Field, ID, Int, ObjectType } from 'type-graphql';
 import { prop, Ref } from 'typegoose';
-import {
-  EUClan, NAClan, ASIAClan, RUClan,
-} from './clan';
+import { EUClan, NAClan, ASIAClan, RUClan } from './clan';
 import Tank from './tank';
-import {
-  EUTankStatistic, RUTankStatistic, NATankStatistic, ASIATankStatistic,
-} from './tankstatistic';
+import { EUTankStatistic, RUTankStatistic, NATankStatistic, ASIATankStatistic } from './tankstatistic';
 
 @ObjectType()
 class HistoricalData {
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     date: Date;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     global_rating: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     battles: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     wins: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     wn8: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     exp: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     moeOne: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     moeTwo: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     moeThree: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     tier: number;
 }
 
@@ -51,47 +45,47 @@ class Player {
   @prop({ required: true })
     _id: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
   @prop({ ref: () => Tank })
     max_frags_tank_id: Ref<Tank>;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     spotted: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     max_xp: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     avg_damage_blocked: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     capture_points: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     survived_battles: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     dropped_capture_points: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     hits_percents: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     draws: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     tanking_factor: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     battles: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     avg_damage_assisted: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     frags: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     avg_damage_assisted_radio: number;
 
   @Field(() => Tank)
@@ -102,116 +96,116 @@ class Player {
   @prop({ ref: () => Tank })
     max_damage_tank_id: Ref<Tank>;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     max_damage: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     battle_avg_xp: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     wins: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     losses: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     damage_dealt: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     max_frags: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     avg_damage_assisted_track: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     trees_cut: number;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     last_battle_time: Date;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     created_at: Date;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     global_rating: number;
 
   @Field(() => String)
     nickname: string;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     tier: number;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     date_updated: Date;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
     date_updated_tdata: Date;
 
-  @Field(() => Boolean)
+  @Field(() => Boolean, { nullable: true })
     tank_data_needs_update: boolean;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     moeOne: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     moeTwo: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     moeThree: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     wn8: number;
 
-  @Field(() => Int)
+  @Field(() => Int, { nullable: true })
     visits: number;
 
-  @Field(() => Boolean)
+  @Field(() => Boolean, { nullable: true })
     isDeleted: boolean;
 
-  @Field(() => [HistoricalData])
+  @Field(() => [HistoricalData], { nullable: true })
     historical_data: mongoose.Types.Array<HistoricalData>;
 }
 
 @ObjectType()
 export class EUPlayer extends Player {
-  @Field(() => EUClan)
+  @Field(() => EUClan, { nullable: true })
   @prop({ ref: () => EUClan })
     clan_id: Ref<EUClan>;
 
-  @Field(() => EUTankStatistic)
+  @Field(() => EUTankStatistic, { nullable: true })
   @prop({ ref: () => EUTankStatistic })
     tank_stats: Ref<EUTankStatistic>;
 }
 
 @ObjectType()
 export class RUPlayer extends Player {
-  @Field(() => RUClan)
+  @Field(() => RUClan, { nullable: true })
   @prop({ ref: () => RUClan })
     clan_id: Ref<RUClan>;
 
-  @Field(() => RUTankStatistic)
+  @Field(() => RUTankStatistic, { nullable: true })
   @prop({ ref: () => RUTankStatistic })
     tank_stats: Ref<RUTankStatistic>;
 }
 
 @ObjectType()
 export class NAPlayer extends Player {
-  @Field(() => NAClan)
+  @Field(() => NAClan, { nullable: true })
   @prop({ ref: () => NAClan })
     clan_id: Ref<NAClan>;
 
-  @Field(() => NATankStatistic)
+  @Field(() => NATankStatistic, { nullable: true })
   @prop({ ref: () => NATankStatistic })
     tank_stats: Ref<NATankStatistic>;
 }
 
 @ObjectType()
 export class ASIAPlayer extends Player {
-  @Field(() => ASIAClan)
+  @Field(() => ASIAClan, { nullable: true })
   @prop({ ref: () => ASIAClan })
     clan_id: Ref<ASIAClan>;
 
-  @Field(() => ASIATankStatistic)
+  @Field(() => ASIATankStatistic, { nullable: true })
   @prop({ ref: () => ASIATankStatistic })
     tank_stats: Ref<ASIATankStatistic>;
 }
