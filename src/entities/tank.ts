@@ -1,4 +1,5 @@
 import { Field, ID, Int, ObjectType } from 'type-graphql';
+import { prop } from '@typegoose/typegoose';
 
 // Create an interface for tank information
 @ObjectType()
@@ -15,10 +16,12 @@ class TankImages {
 
 @ObjectType()
 export default class Tank {
-  @Field(() => ID)
+  @Field(() => Int)
+  @prop()
     _id: number;
 
   @Field(() => String, { nullable: true })
+  @prop()
     tag: string;
 
   @Field(() => String, { nullable: true })

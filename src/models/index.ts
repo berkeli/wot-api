@@ -4,7 +4,7 @@ import { EUTankStatistic, NATankStatistic, ASIATankStatistic, RUTankStatistic } 
 import { ASIAClan, EUClan, NAClan, RUClan } from '../entities/clan';
 import { EUPlayer, NAPlayer, RUPlayer, ASIAPlayer } from '../entities/player';
 import Tank from '../entities/tank';
-import wnepxval from '../entities/wn8expvalue';
+import WN8ExpValue from '../entities/wn8expvalue';
 
 export const Player = { eu: getModelForClass<typeof EUPlayer>(EUPlayer),
   na: getModelForClass<typeof NAPlayer>(NAPlayer),
@@ -17,7 +17,7 @@ export const Clan = { eu: getModelForClass<typeof EUClan>(EUClan),
   asia: getModelForClass<typeof ASIAClan>(ASIAClan) }
 
 export const TankData = getModelForClass<typeof Tank>(Tank);
-export const WN8ExpValue = getModelForClass<typeof wnepxval>(wnepxval);
+export const WN8ExpVal = getModelForClass<typeof WN8ExpValue>(WN8ExpValue);
 
 export const TankStatistic = { eu: getModelForClass<typeof EUTankStatistic>(EUTankStatistic),
   na: getModelForClass<typeof RUTankStatistic>(RUTankStatistic),

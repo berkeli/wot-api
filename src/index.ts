@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import config from './config/config';
 import logging from './config/logging';
 import { resolvers } from './resolvers';
+import { TankData } from './models/index';
 import wn8refresher from './datacollector/wn8refresher';
 
 const NAMESPACE = 'SERVER';
@@ -34,7 +35,9 @@ const main = async () => {
     })
   });
 
-  wn8refresher();
+  // wn8refresher();
+  const test = await TankData.find({_id: 1});
+  console.log(test)
 }
 
 main();
